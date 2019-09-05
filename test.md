@@ -4,8 +4,15 @@ The run_analysis.R script performs data acquisition and tidy it through the foll
 
 ## Data acquisition 
 
-“project” directory created under the working directory
-Dataset downloaded to the “project” directory and extracted under the “UCI HAR Dataset” directory
+“project” directory created under the working directory.
+```
+if(!file.exists("./project")){dir.create("./project")}
+```
+Dataset downloaded to the “project” directory and extracted under the “UCI HAR Dataset” directory.
+```
+fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+download.file(fileUrl,destfile="./project/Dataset.zip")
+```
 
 ## Step 1. Merges the training and the test sets to create one data set 
 
@@ -45,7 +52,7 @@ y_test <- read.table("./project/UCI HAR Dataset/test/y_test.txt", col.names = "i
 ```
 subject_test <- read.table("./project/UCI HAR Dataset/test/subject_test.txt",col.names = "subject")
 ```
-### Create one merged data set
+### Creating one merged data set
 “merged_train” (7352 obs. of 563 variables) object is created by merging y_train, subject_train, x_train using cbind() function.
 ```
 merged_train <- cbind(y_train, subject_train, x_train)
@@ -61,13 +68,13 @@ merged_all <- rbind(merged_train, merged_test)
 
 ## Step 2. Extracts only the measurements on the mean and standard deviation for each measurement
 
-### check if “dplyr” package is installed and load the package:
+### Checking if “dplyr” package is installed and load the package:
 ```
 if (!"dplyr" %in% installed.packages()) {install.packages("dplyr")}
 library(dplyr)
 ```
 
-### extract mean and standard deviation for each measurement
+### Extracting mean and standard deviation for each measurement
 extracted_data (10299 obs. of  88 variables) is created by subsetting merged_all, selecting only columns: subject, id and the measurements on the mean and standard deviation (std) for each measurement.
 ```
 extracted_data <- merged_all %>% select(subject, id, contains("mean"), contains("std"))
@@ -120,7 +127,7 @@ extracted_data_means <- extracted_data %>%
     group_by(subject, activity) %>%
     summarise_all(list(mean = mean))
 ```
-## Export tidy_data.txt
+## Exporting tidy_data.txt
 
 extracted_data_means exported as tidy_data.txt file.
 ```
