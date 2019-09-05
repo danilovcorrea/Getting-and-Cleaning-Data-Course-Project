@@ -1,6 +1,6 @@
 # Getting and Cleaning Data - Course Project
 
-This repository hosts the R code and documentation files for the Getting and Cleaning Data course project.
+This repository hosts the R code and documentation files for the "Getting and Cleaning Data Course" project.
 
 
 # Dataset
