@@ -68,7 +68,7 @@ merged_all <- rbind(merged_train, merged_test)
 
 ## Step 2. Extracts only the measurements on the mean and standard deviation for each measurement
 
-### Checking if “dplyr” package is installed and load the package:
+### Checking if “dplyr” package is installed and loading the package:
 ```
 if (!"dplyr" %in% installed.packages()) {install.packages("dplyr")}
 library(dplyr)
