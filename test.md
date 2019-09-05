@@ -7,7 +7,7 @@ The run_analysis.R script performs data acquisition and tidy it through the foll
 “project” directory created under the working directory
 Dataset downloaded to the “project” directory and extracted under the “UCI HAR Dataset” directory
 
-# Step 1. Merges the training and the test sets to create one data set 
+## Step 1. Merges the training and the test sets to create one data set 
 
 ### Read the "activity_labels" set
 “activity_Labels” (6 obs. of 2 variables) object is created by reading activity_labels.txt. Column names are assigned through the argument col.names = c("class_label", "activity")
